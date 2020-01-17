@@ -10,9 +10,9 @@ using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
 using System;
 using Utilites.Logger;
-using MoreIngots.MI;
+using MoreIngotsplus.MI;
 
-namespace MoreIngots.MI
+namespace MoreIngotsplus.MI
 {
     public enum Status
     {

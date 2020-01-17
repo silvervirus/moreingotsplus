@@ -5,7 +5,7 @@ using SMLHelper.V2.Utility;
 using System;
 using Harmony;
 using UnityEngine;
-using MoreIngots.MI;
+using MoreIngotsplus.MI;
 using Logger = Utilites.Logger.Logger;
 using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
@@ -14,7 +14,7 @@ using Utilites.Config;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace MoreIngots.MI
+namespace MoreIngotsplus.MI
 {
     /// <summary>
     /// Main class for loading the asset bundles

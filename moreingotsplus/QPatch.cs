@@ -10,10 +10,10 @@ using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
 using System;
 using Utilites.Logger;
-using MoreIngots.MI;
-using static MoreIngots.MI.LoadingStartStop;
+using MoreIngotsplus.MI;
+using static MoreIngotsplus.MI.LoadingStartStop;
 
-namespace MoreIngots
+namespace MoreIngotsplus
 {
     /// <summary>
     /// Main class

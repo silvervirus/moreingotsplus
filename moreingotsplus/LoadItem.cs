@@ -11,9 +11,9 @@ using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
 using System;
 using Utilites.Logger;
-using MoreIngots.MI;
+using MoreIngotsplus.MI;
 
-namespace MoreIngots.MI
+namespace MoreIngotsplus.MI
 {
     /// <summary>
     /// Where the mod should look for the asset
@@ -172,9 +172,9 @@ namespace MoreIngots.MI
                     Log.Debug(languageName, "Linking TechDatas with TechTypes... (2/2)");
                     Log.Debug(languageName, "TechDatas linked with TechTypes");
                     Log.Debug(languageName, "Adding Fabricator nodes... (0/2)");
-                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Resources", "pack" + name);
+                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Craft","Pack");
                     Log.Debug(languageName, "Adding Fabricator nodes... (1/2)");
-                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Resources", "Unpack");
+                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Unpack", "Unpack" );
                     Log.Debug(languageName, "Adding Fabricator nodes... (2/2)");
                     Log.Debug(languageName, "Fabricator nodes added");
                     Log.Debug(languageName, "Applying item sizes...");

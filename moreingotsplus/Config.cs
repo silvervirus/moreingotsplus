@@ -8,10 +8,10 @@ using LogType = Utilites.Logger.LogType;
 using LogLevel = Utilites.Logger.LogLevel;
 using System;
 using Utilites.Logger;
-using MoreIngots.MI;
+using MoreIngotsplus.MI;
 using Utilites.Config;
 
-namespace MoreIngots.MI
+namespace MoreIngotsplus.MI
 {
     /// <summary>
     /// Main class for loading or saving the config
