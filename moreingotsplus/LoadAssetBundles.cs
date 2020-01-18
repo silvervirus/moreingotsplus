@@ -35,10 +35,10 @@ namespace MoreIngotsplus.MI
             try
             {
                 Log.Debug("Loading asset bundles... (0/5)");
-               var moreingots = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/moreingots.assets");
+                moreingots = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/moreingots.assets");
                 Log.Debug("\"moreingots\" asset bundle loaded");
                 Log.Debug("Loading asset bundles... (1/5)");
-               var ingotsplus = AssetBundle.LoadFromFile(@"/QMods/moreingotsplus/Assets/yenzen-ingotsplus.assets");
+                ingotsplus = AssetBundle.LoadFromFile(@"/QMods/moreingotsplus/Assets/yenzen-ingotsplus.assets");
                 Log.Debug("\"yenzen-ingotsplus\" asset bundle loaded");
                 Log.Debug("Loading asset bundles... (2/5)");
                 moreingots_salt = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/salt-alexejheroytb.assets");

@@ -54,11 +54,11 @@ namespace MoreIngotsplus.MI
             /// <param name="inassetbundles">What assetbundle the sprite of the item is in</param>
             /// <param name="assetPath">The name of the sprite</param>
             /// <param name="alt_assetPath">The name of the alternative sprite</param>
-            public static void Custom(string name, string languageName, string languageTooltip, TechType from, string alt_assetPath, string assetPath, InAssetBundles inassetbundles = InAssetBundles.All)
+            public static void Custom(string name, string languageName, string languageTooltip, TechType from, string alt_assetPath, string assetPath,InAssetBundles inassetbundles = InAssetBundles.All) 
             {
                 try
                 {
-                    
+
                     
                     var _x = 1;
                     var _y = 1;
@@ -172,48 +172,59 @@ namespace MoreIngotsplus.MI
                     Log.Debug(languageName, "Linking TechDatas with TechTypes... (2/2)");
                     Log.Debug(languageName, "TechDatas linked with TechTypes");
                     Log.Debug(languageName, "Adding Fabricator nodes... (0/2)");
-                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Craft","Pack");
+                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType,"Craft","Pack" + assetPath);
                     Log.Debug(languageName, "Adding Fabricator nodes... (1/2)");
-                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, techType, "Unpack", "Unpack" );
+                    CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, from, "Unpack", "Unpack" + fromstring);
                     Log.Debug(languageName, "Adding Fabricator nodes... (2/2)");
                     Log.Debug(languageName, "Fabricator nodes added");
                     Log.Debug(languageName, "Applying item sizes...");
                     CraftDataHandler.SetItemSize(techType , new Vector2int(_x, _y));
                     Log.Debug(languageName, "Item sizes applied");
                     Log.Debug(languageName, "Starting sprite loading...");
+                    Console.WriteLine("[hello we made it] this is where we are!");
                     if (inassetbundles == InAssetBundles.All)
                     {
                         if (MI.Config._alttextures)
-                        {
+                        {  
                             Log.Debug(languageName, "Asset bundle \"moreingots\" selected");
                             Log.Debug(languageName, "Obtaining sprite...");
-                            if (moreingots.LoadAsset<Sprite>(alt_assetPath) == null)
+                            Console.WriteLine("a");
+                            if (Load.moreingots.LoadAsset<Sprite>(alt_assetPath) == null)
                             {
+                                Console.WriteLine("b");
                                 Log.Error(languageName, "Sprite is null");
                                 Log.Debug(languageName, Status.Stop);
                                 return;
                             }
-                            var alt_sprite = moreingots.LoadAsset<Sprite>(alt_assetPath);
+                            Console.WriteLine("c");
+                            
+                            Console.WriteLine("d");
                             Log.Debug(languageName, "Sprite obtained");
                             Log.Debug(languageName, "Applying sprite...");
-                            SpriteHandler.RegisterSprite(techType, alt_sprite);
+                            SpriteHandler.RegisterSprite(techType, Load.moreingots.LoadAsset<Sprite>(alt_assetPath));
                             Log.Debug(languageName, "Sprite applied");
                         }
                         else
                         {
                             Log.Debug(languageName, "Asset bundle \"yenzen-ingotsplus\" selected");
                             Log.Debug(languageName, "Obtaining sprite...");
-                            if (ingotsplus.LoadAsset<Sprite>(assetPath) == null)
+
+                            Console.WriteLine("a");
+                            if (Load.ingotsplus.LoadAsset<Sprite>(assetPath) == null)
                             {
+                                Console.WriteLine("b");
                                 Log.Error(languageName, "Sprite is null");
                                 Log.Debug(languageName, Status.Stop);
                                 return;
                             }
-                            var sprite = ingotsplus.LoadAsset<Sprite>(assetPath);
+                            Console.WriteLine("c");
+                            
+                            Console.WriteLine("d");
                             Log.Debug(languageName, "Sprite obtained");
                             Log.Debug(languageName, "Applying sprite...");
-                            SpriteHandler.RegisterSprite(techType, sprite);
+                            SpriteHandler.RegisterSprite(techType, Load.ingotsplus.LoadAsset<Sprite>(assetPath));
                             Log.Debug(languageName, "Sprite applied");
+                            Console.WriteLine("[hello we made it] this is where we are!");
                         }
                     }
                     if (inassetbundles == InAssetBundles.Salt)
@@ -228,26 +239,32 @@ namespace MoreIngotsplus.MI
                                 Log.Debug(languageName, Status.Stop);
                                 return;
                             }
-                            var alt_sprite = moreingots_salt.LoadAsset<Sprite>(alt_assetPath);
+                           
                             Log.Debug(languageName, "Sprite obtained");
+                            Console.WriteLine("[hello we made it] this is where we are!");
                             Log.Debug(languageName, "Applying sprite...");
-                            SpriteHandler.RegisterSprite(techType, alt_sprite);
+                            SpriteHandler.RegisterSprite(techType, Load.moreingots_salt.LoadAsset<Sprite>(alt_assetPath));
                             Log.Debug(languageName, "Sprite applied");
                         }
                         else
                         {
                             Log.Debug(languageName, "Asset bundle \"salt-yenzen\" selected");
                             Log.Debug(languageName, "Obtaining sprite...");
+                            Console.WriteLine("a");
                             if (ingotsplus_salt.LoadAsset<Sprite>(assetPath) == null)
                             {
+                                Console.WriteLine("a");
                                 Log.Error(languageName, "Sprite is null");
                                 Log.Debug(languageName, Status.Stop);
                                 return;
                             }
-                            var sprite = ingotsplus_salt.LoadAsset<Sprite>(assetPath);
+                            Console.WriteLine("a");
+                            
+                            Console.WriteLine("a");
                             Log.Debug(languageName, "Sprite obtained");
                             Log.Debug(languageName, "Applying sprite...");
-                            SpriteHandler.RegisterSprite(techType, sprite);
+                            Console.WriteLine("[hello we made it] this is where we are!");
+                            SpriteHandler.RegisterSprite(techType, Load.ingotsplus_salt.LoadAsset<Sprite>(assetPath));
                             Log.Debug(languageName, "Sprite applied");
                         }
                     }
@@ -255,16 +272,20 @@ namespace MoreIngotsplus.MI
                     {
                         Log.Debug(languageName, "Asset bundle \"sulphur\" selected");
                         Log.Debug(languageName, "Obtaining sprite...");
+                        Console.WriteLine("a");
                         if (sulphur.LoadAsset<Sprite>(assetPath) == null)
                         {
+                            Console.WriteLine("a");
                             Log.Error(languageName, "Sprite is null");
                             Log.Debug(languageName, Status.Stop);
                             return;
                         }
-                        var s_sprite = sulphur.LoadAsset<Sprite>(assetPath);
+                        Console.WriteLine("a");
+                        var s_sprite = Load.sulphur.LoadAsset<Sprite>(assetPath);
+                        Console.WriteLine("a");
                         Log.Debug(languageName, "Sprite obtained");
                         Log.Debug(languageName, "Applying sprite...");
-                        SpriteHandler.RegisterSprite(techType, s_sprite);
+                        SpriteHandler.RegisterSprite(techType, Load.sulphur.LoadAsset<Sprite>(assetPath));
                         Log.Debug(languageName, "Sprite applied");
                     }
                     Log.Debug(languageName, Status.Stop);

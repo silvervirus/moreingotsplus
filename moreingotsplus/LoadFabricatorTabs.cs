@@ -29,32 +29,34 @@ namespace MoreIngotsplus.MI
         {
             try
             {
-                var spritetabcraft = moreingots.LoadAsset<Sprite>("MIFabTabCraft");
-                var spritetabunpack = moreingots.LoadAsset<Sprite>("MIFabTabUnpack");
-                var spritetabcraft2 = ingotsplus.LoadAsset<Sprite>("IPFabTabCraft");
-                var spritetabunpack2 = ingotsplus.LoadAsset<Sprite>("IPFabTabUnpack");
+                
                 if (MI.Config._alttextures)
                 {
                     MI.Log.Debug("Loading fabricator tabs with alternative sprites... (0/2)");
-                    CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator ,"Craft","Pack", SpriteManager.Get(TechType.Titanium));
+                    CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Craft", "Pack", SpriteManager.Get(TechType.Titanium));
                     MI.Log.Debug("Loading fabricator tabs with alternative sprites... (1/2)");
                     CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Unpack", "Unpack", SpriteManager.Get(TechType.PlasteelIngot));
                     MI.Log.Debug("Loading fabricator tabs with alternative sprites... (2/2)");
                     MI.Log.Debug("Fabricator tabs with alternative sprites loaded");
                 }
-                else
-                {
-                    MI.Log.Debug("Loading fabricator tabs... (0/2)");
-                    CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Craft", "Pack", SpriteManager.Get(TechType.TitaniumIngot));
-                    MI.Log.Debug("Loading fabricator tabs... (1/2)");
-                    CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Unpack", "Unpack", SpriteManager.Get(TechType.Copper));
-                    MI.Log.Debug("Loading fabricator tabs... (2/2)");
-                    MI.Log.Debug("Fabricator tabs loaded");
-                }
+
             }
             catch (Exception e)
             {
                 Log.e(e);
+            }
+            try
+            {
+                MI.Log.Debug("Loading fabricator tabs... (0/2)");
+                CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Craft", "Pack", SpriteManager.Get(TechType.TitaniumIngot));
+                MI.Log.Debug("Loading fabricator tabs... (1/2)");
+                CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, "Unpack", "Unpack", SpriteManager.Get(TechType.Copper));
+                MI.Log.Debug("Loading fabricator tabs... (2/2)");
+                MI.Log.Debug("Fabricator tabs loaded");
+            }
+            catch (Exception E)
+            {
+                Log.e(E);
             }
         }
     }
