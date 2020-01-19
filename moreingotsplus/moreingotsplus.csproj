@@ -31,14 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\Program Files\Epic Games\Subnautica\Subnautica_Data\Managed\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependancies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Program Files\Epic Games\Subnautica\Subnautica_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SMLHelper">
-      <HintPath>..\..\..\..\..\..\Program Files\Epic Games\Subnautica\QMods\Modding Helper\SMLHelper.dll</HintPath>
+    <Reference Include="QModInstaller">
+      <HintPath>..\Dependancies\QModInstaller.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLHelper, Version=2.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependancies\SMLHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,11 +62,13 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\..\..\Program Files\Epic Games\Subnautica\Subnautica_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnpackIngots">
-      <HintPath>..\UnpackIngots\UnpackIngots.dll</HintPath>
+    <Reference Include="UnpackIngots, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependancies\UnpackIngots.dll</HintPath>
     </Reference>
-    <Reference Include="Utilites">
-      <HintPath>..\..\..\..\..\..\Program Files\Epic Games\Subnautica\QMods\Utilites\Utilites.dll</HintPath>
+    <Reference Include="Utilites, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependancies\Utilites.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -73,5 +80,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QPatch.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="config.json" />
+    <None Include="mod.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)bin\$(Configuration)\moreingotsplus.dll" "F:\Program Files\Epic Games\Subnautica\QMods\MoreIngotsplus\" /Y /I</PostBuildEvent>
+  </PropertyGroup>
 </Project>

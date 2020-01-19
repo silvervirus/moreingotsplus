@@ -1,14 +1,5 @@
-﻿using SMLHelper.V2.Assets;
-using SMLHelper.V2.Crafting;
-using SMLHelper.V2.Handlers;
-using SMLHelper.V2.Utility;
-using UnityEngine;
-using Logger = Utilites.Logger.Logger;
-using LogType = Utilites.Logger.LogType;
-using LogLevel = Utilites.Logger.LogLevel;
+﻿using Logger = Utilites.Logger.Logger;
 using System;
-using Utilites.Logger;
-using MoreIngotsplus.MI;
 using Utilites.Config;
 
 namespace MoreIngotsplus.MI

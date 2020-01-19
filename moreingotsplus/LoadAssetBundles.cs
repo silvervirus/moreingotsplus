@@ -1,18 +1,5 @@
-﻿using SMLHelper.V2.Assets;
-using SMLHelper.V2.Crafting;
-using SMLHelper.V2.Handlers;
-using SMLHelper.V2.Utility;
-using System;
-using Harmony;
+﻿using System;
 using UnityEngine;
-using MoreIngotsplus.MI;
-using Logger = Utilites.Logger.Logger;
-using LogType = Utilites.Logger.LogType;
-using LogLevel = Utilites.Logger.LogLevel;
-using Utilites.Logger;
-using Utilites.Config;
-using System.Collections.Generic;
-using System.Collections;
 
 namespace MoreIngotsplus.MI
 {
@@ -38,7 +25,7 @@ namespace MoreIngotsplus.MI
                 moreingots = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/moreingots.assets");
                 Log.Debug("\"moreingots\" asset bundle loaded");
                 Log.Debug("Loading asset bundles... (1/5)");
-                ingotsplus = AssetBundle.LoadFromFile(@"/QMods/moreingotsplus/Assets/yenzen-ingotsplus.assets");
+                ingotsplus = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/yenzen-ingotsplus.assets");
                 Log.Debug("\"yenzen-ingotsplus\" asset bundle loaded");
                 Log.Debug("Loading asset bundles... (2/5)");
                 moreingots_salt = AssetBundle.LoadFromFile(@"./QMods/moreingotsplus/Assets/salt-alexejheroytb.assets");

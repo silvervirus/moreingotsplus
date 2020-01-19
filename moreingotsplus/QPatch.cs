@@ -1,16 +1,6 @@
-using SMLHelper.V2.Assets;
-using SMLHelper.V2.Crafting;
-using SMLHelper.V2.Handlers;
-using SMLHelper.V2.Utility;
-using System.Collections.Generic;
-using UnityEngine;
-using Utilites.Config;
-using Logger = Utilites.Logger.Logger;
-using LogType = Utilites.Logger.LogType;
-using LogLevel = Utilites.Logger.LogLevel;
 using System;
-using Utilites.Logger;
 using MoreIngotsplus.MI;
+using QModManager.API.ModLoading;
 using static MoreIngotsplus.MI.LoadingStartStop;
 
 namespace MoreIngotsplus
@@ -18,11 +8,13 @@ namespace MoreIngotsplus
     /// <summary>
     /// Main class
     /// </summary>
+    [QModCore]
     public class QPatch
     {
         /// <summary>
         /// Entry point
         /// </summary>
+        [QModPatch]
         public static void Patch()
         {
             try
