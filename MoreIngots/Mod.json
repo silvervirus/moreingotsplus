@@ -1,0 +1,9 @@
+{
+    "Id": "MoreIngotsClassic",
+    "DisplayName": "MoreIngotsClassic",
+    "Author": "AlexejheroYTB",
+    "Version": "2.0.0",
+    "Requires": [],
+    "Enable": true,
+    "AssemblyName": "MoreIngotsClassic.dll"
+}
