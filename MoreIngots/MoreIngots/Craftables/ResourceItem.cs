@@ -66,7 +66,7 @@ namespace MoreIngots.Craftables
         {
             var techData = new TechData()
             {
-                craftAmount = 0,
+                craftAmount = 1,
                 Ingredients = new List<Ingredient>()
                 {
                     new Ingredient(_resourceData.TechType, 10)
