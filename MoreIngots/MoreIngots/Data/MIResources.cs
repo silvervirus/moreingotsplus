@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MoreIngots.Craftables;
 using MoreIngots.Utilities;
-using SMLHelper.V2.Crafting;
 
 namespace MoreIngots.Data
 {
@@ -28,9 +23,9 @@ namespace MoreIngots.Data
         }
     }
 
-       internal class ResourceData
-        {
-            public string Type { get; set; }
+    internal class ResourceData
+    {
+        public string Type { get; set; }
         /// <summary>
         /// The Element of the resource [NOTE: Will be used in the name of the icon and class name].
         /// </summary>
@@ -44,16 +39,6 @@ namespace MoreIngots.Data
         /// The TechType corresponding to the resource [NOTE: Will be used in the ingredients of the mod]
         /// </summary>
         public TechType TechType { get; set; }
-        
-    }
-    internal class ResourceEntry
-    {
-        internal string ClassID { get; set; }
-        internal string FriendlyName { get; set; }
 
-        internal string Description { get; set; }
-        internal string IconName { get; set; }
-        internal TechType TechTypeToCompress { get; set; }
-        internal int AmountNeededToCompress { get; set; }
     }
 }

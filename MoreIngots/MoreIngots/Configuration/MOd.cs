@@ -12,6 +12,7 @@ namespace MoreIngots.Configuration
         internal const string ModName = "MoreIngots";
         
         internal static string ModAssetFolder = Path.Combine(ModName,"Assets");
+        
         internal static string GetAssetFolder()
         {
             return Path.Combine(GetModPath(), "Assets");

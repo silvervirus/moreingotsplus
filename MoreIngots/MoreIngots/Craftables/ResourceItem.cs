@@ -17,6 +17,13 @@ namespace MoreIngots.Craftables
         private readonly GameObject _ingotPrefab;
         private ResourceData _resourceData;
 
+        public override TechGroup GroupForPDA => TechGroup.Resources;
+        public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
+        public override string AssetsFolder => Mod.ModAssetFolder;
+        public override string IconFileName { get; }
+        public override string[] StepsToFabricatorTab => new[] { "Craft", "Pack" };
+        public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
+
 
         /// <summary>
         /// Default constructor
@@ -47,7 +54,6 @@ namespace MoreIngots.Craftables
 
                 prefab.name = this.PrefabFileName;
 
-                // Return the new model with the added components
                 return prefab;
 
             }
@@ -76,12 +82,6 @@ namespace MoreIngots.Craftables
             return techData;
         }
 
-        public override TechGroup GroupForPDA => TechGroup.Resources;
-        public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
-        public override string AssetsFolder => Mod.ModAssetFolder;
-        public override string IconFileName { get; }
-        public override string[] StepsToFabricatorTab => new[] { "Craft", "Pack" };
 
-        public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
     }
 }
