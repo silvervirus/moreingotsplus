@@ -1,0 +1,9 @@
+{
+    "Id": "MoreIngots",
+    "DisplayName": "MoreIngots",
+    "Author": "Cookie",
+    "Version": "2.0.0",
+    "Requires": [],
+    "Enable": true,
+    "AssemblyName": "MoreIngots.dll"
+}
