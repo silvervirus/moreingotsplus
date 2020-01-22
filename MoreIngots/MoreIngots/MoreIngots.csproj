@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Mod.cs" />
+    <Compile Include="Craftables\DecompressedItem.cs" />
     <Compile Include="Craftables\StackedItem.cs" />
     <Compile Include="Data\MIResources.cs" />
     <Compile Include="Utilities\QuickLogger.cs" />

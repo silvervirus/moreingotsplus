@@ -15,7 +15,7 @@ namespace MoreIngots.Craftables
     internal class ResourceItem : Craftable
     {
         private readonly GameObject _ingotPrefab;
-        private ResourceData _resourceData;
+        private readonly ResourceData _resourceData;
 
         public override TechGroup GroupForPDA => TechGroup.Resources;
         public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
@@ -39,12 +39,19 @@ namespace MoreIngots.Craftables
 
             _resourceData = resoureData;
 
+            //When this object has finished patching to the game create a stack variant of it
             OnFinishedPatching += () =>
             {
                 var customResourceData = resoureData.DeepCopy();
                 customResourceData.TechType = this.TechType;
                 var stacked = new StackedItem(customResourceData);
                 stacked.Patch();
+
+                var unpacked = new DecompressedItem(TechType, _resourceData.TechType, resoureData.Type, new[] { "MI", "MIUnPack" },"MIPU");
+                unpacked.Patch();
+                
+                var unStack = new DecompressedItem(stacked.TechType, TechType, resoureData.Type, new[] { "MI", "MIUnStack"},"MISU");
+                unStack.Patch();
             };
         }
 

@@ -26,9 +26,9 @@ namespace MoreIngots.Data
             new ResourceData {Type = "Quartz", Element = "Si04",FriendlyName = "Quartz", TechType = TechType.Quartz},
             new ResourceData {Type = "Salt", Element = "NaC1",FriendlyName = "Salt", TechType = TechType.Salt},
             new ResourceData {Type = "Sulphur", Element = "S",FriendlyName = "Sulphur", TechType = TechType.Sulphur},
-            new ResourceData {Type = "Crash", Element = "Sc1",FriendlyName = "Crash", TechType = TechType.CrashPowder},
-
+            new ResourceData {Type = "Crash", Element = "Sc1",FriendlyName = "Crash", TechType = TechType.CrashPowder}
         };
+
         internal static void CreateResources()
         {
             foreach (var resource in NewResources)
@@ -40,7 +40,6 @@ namespace MoreIngots.Data
         }
     }
 
-    [Serializable]
     internal class ResourceData
     {
         public ResourceData()
@@ -48,12 +47,13 @@ namespace MoreIngots.Data
             
         }
         
-        private ResourceData(string type, string element, string friendlyName, TechType techType)
+        private ResourceData(string type, string element, string friendlyName, TechType techType,TechType linkedTechType = TechType.None)
         {
             Type = type;
             Element = element;
             FriendlyName = friendlyName;
             TechType = techType;
+            LinkedTechType = linkedTechType;
         }
 
         public string Type { get; set; }
@@ -70,6 +70,11 @@ namespace MoreIngots.Data
         /// The TechType corresponding to the resource [NOTE: Will be used in the ingredients of the mod]
         /// </summary>
         public TechType TechType { get; set; }
+
+        /// <summary>
+        /// The LinkedTechType to return to the player
+        /// </summary>
+        public TechType LinkedTechType { get; set; }
 
         public ResourceData DeepCopy()
         {

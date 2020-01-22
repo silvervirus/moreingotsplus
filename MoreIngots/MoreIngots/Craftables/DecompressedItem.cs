@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
 using MoreIngots.Configuration;
-using MoreIngots.Data;
 using MoreIngots.Utilities;
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
@@ -15,32 +13,36 @@ namespace MoreIngots.Craftables
     /// A class that represents a resource in the MoreIngots Mod this class inherits <see cref="Craftable"/> to make it easier to add craftable items to the game.
     /// </summary>
     [Serializable]
-    internal class StackedItem : Craftable
+    internal class DecompressedItem : Craftable
     {
         private readonly GameObject _ingotPrefab;
-        private ResourceData _resourceData;
+        private TechType _fromTechType;
+        private TechType _toTechType;
+        private string[] _stepsToFabricator;
+        private string _type;
 
         public override TechGroup GroupForPDA => TechGroup.Resources;
         public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
         public override string AssetsFolder => Mod.ModAssetFolder;
         public override string IconFileName { get; }
-        public override string[] StepsToFabricatorTab => new[] {"MI", "MIStack"};
+        public override string[] StepsToFabricatorTab => _stepsToFabricator;
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="resourceKey"></param>
-        /// <param name="resoureData">The data that has all information needed to create a new resource</param>
-        public StackedItem(ResourceData resoureData) : base($"MIS{resoureData.Type}", $"Stacked {resoureData.FriendlyName} Ingots", $"{resoureData.Element}. Stacked {resoureData.FriendlyName}. Added by the MoreIngots mod")
+        /// <param name="fromTechType"></param>
+        /// <param name="toTechType"></param>
+        public DecompressedItem(TechType fromTechType, TechType toTechType, string type, string[] stepsToFabricator,string suffix) : base($"{suffix}{toTechType}", $"Unpacked {type} Ingots", $"Unpacks {type}. Added by the MoreIngots mod")
         {
-            _ingotPrefab = CraftData.GetPrefabForTechType(TechType.PlasteelIngot);
+            _ingotPrefab = CraftData.GetPrefabForTechType(toTechType);
             
-            //Set icon Name;
-            IconFileName = $"MIS{resoureData.Type}.png";
+            _fromTechType = fromTechType;
 
-            _resourceData = resoureData;
+            _toTechType = toTechType;
+
+            _stepsToFabricator = stepsToFabricator;
         }
 
         /// <summary>
@@ -76,14 +78,28 @@ namespace MoreIngots.Craftables
         {
             var techData = new TechData()
             {
-                craftAmount = 1,
+                craftAmount = 0,
                 Ingredients = new List<Ingredient>()
                 {
-                    new Ingredient(_resourceData.TechType, 10)
-                }
+                    new Ingredient(_fromTechType, 1)
+                },
+                LinkedItems = CreateLinkedItemsList().ToList()
             };
 
             return techData;
+        }
+
+        IEnumerable<TechType> CreateLinkedItemsList()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                yield return _toTechType;
+            }
+        }
+        
+        protected override Atlas.Sprite GetItemSprite()
+        {
+            return SpriteManager.Get(_toTechType);
         }
     }
 }
