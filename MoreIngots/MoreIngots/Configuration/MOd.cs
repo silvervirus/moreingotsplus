@@ -13,6 +13,10 @@ namespace MoreIngots.Configuration
         
         internal static string ModAssetFolder = Path.Combine(ModName,"Assets");
         
+        /// <summary>
+        /// Gets the asset folder complete path on the computer
+        /// </summary>
+        /// <returns></returns>
         internal static string GetAssetFolder()
         {
             return Path.Combine(GetModPath(), "Assets");

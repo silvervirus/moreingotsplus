@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using MoreIngots.Configuration;
 using MoreIngots.Data;
 using MoreIngots.Utilities;
@@ -12,7 +14,8 @@ namespace MoreIngots.Craftables
     /// <summary>
     /// A class that represents a resource in the MoreIngots Mod this class inherits <see cref="Craftable"/> to make it easier to add craftable items to the game.
     /// </summary>
-    internal class ResourceItem : Craftable
+    [Serializable]
+    internal class StackedItem : Craftable
     {
         private readonly GameObject _ingotPrefab;
         private ResourceData _resourceData;
@@ -21,7 +24,7 @@ namespace MoreIngots.Craftables
         public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
         public override string AssetsFolder => Mod.ModAssetFolder;
         public override string IconFileName { get; }
-        public override string[] StepsToFabricatorTab => new[] { "MI","MIPack"};
+        public override string[] StepsToFabricatorTab => new[] {"MI", "MIStack" };
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
 
@@ -30,22 +33,14 @@ namespace MoreIngots.Craftables
         /// </summary>
         /// <param name="resourceKey"></param>
         /// <param name="resoureData">The data that has all information needed to create a new resource</param>
-        public ResourceItem(ResourceData resoureData) : base($"MI{resoureData.Type}", $"Packed {resoureData.FriendlyName}", $"{resoureData.Element}. Compressed {resoureData.FriendlyName}. Added by the MoreIngots mod")
+        public StackedItem(ResourceData resoureData) : base($"MIS{resoureData.Type}", $"Stacked {resoureData.FriendlyName} Ingots", $"{resoureData.Element}. Stacked {resoureData.FriendlyName}. Added by the MoreIngots mod")
         {
             _ingotPrefab = CraftData.GetPrefabForTechType(TechType.TitaniumIngot);
             
             //Set icon Name;
-            IconFileName = $"MI{resoureData.Type}.png";
+            IconFileName = $"MIS{resoureData.Type}.png";
 
             _resourceData = resoureData;
-
-            OnFinishedPatching += () =>
-            {
-                var customResourceData = resoureData.DeepCopy();
-                customResourceData.TechType = this.TechType;
-                var stacked = new StackedItem(customResourceData);
-                stacked.Patch();
-            };
         }
 
         /// <summary>
@@ -90,7 +85,5 @@ namespace MoreIngots.Craftables
 
             return techData;
         }
-
-
     }
 }
