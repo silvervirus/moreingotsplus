@@ -11,6 +11,20 @@ namespace MoreIngots.Data
             {new ResourceData {Type = "Gold", Element = "Au",FriendlyName = "Gold", TechType = TechType.Gold}},
             {new ResourceData {Type = "Diamond", Element = "C",FriendlyName = "Diamond", TechType = TechType.Diamond}},
             {new ResourceData {Type = "Lithium", Element = "Li",FriendlyName = "Lithium", TechType = TechType.Lithium}},
+            {new ResourceData {Type = "Copper", Element = "Cu",FriendlyName = "Copper", TechType = TechType.Copper}},
+            {new ResourceData {Type = "Lead", Element = "Pb",FriendlyName = "LLead", TechType = TechType.Lead}},
+            {new ResourceData {Type = "Silver", Element = "Ag",FriendlyName = "Silver", TechType = TechType.Silver}},
+            {new ResourceData {Type = "Magnetite", Element = "Fe304",FriendlyName = "Magnetite", TechType = TechType.Magnetite}},
+            {new ResourceData {Type = "Nickel", Element = "Ni",FriendlyName = "Nickel", TechType = TechType.Lithium}},
+            {new ResourceData {Type = "Kyanite", Element = "Al2Si05",FriendlyName = "Kyanite", TechType = TechType.Kyanite}},
+            {new ResourceData {Type = "Ruby", Element = "Al203",FriendlyName = "Ruby", TechType = TechType.AluminumOxide}},
+            {new ResourceData {Type = "Uraninite", Element = "U305",FriendlyName = "Uraninite", TechType = TechType.UraniniteCrystal}},
+            {new ResourceData {Type = "Ion", Element = "I48",FriendlyName = "Ion", TechType = TechType.PrecursorIonCrystal}},
+            {new ResourceData {Type = "Quartz", Element = "Si04",FriendlyName = "Quartz", TechType = TechType.Quartz}},
+            {new ResourceData {Type = "Salt", Element = "NaC1",FriendlyName = "Salt", TechType = TechType.Salt}},
+            {new ResourceData {Type = "Sulphur", Element = "S",FriendlyName = "Sulphur", TechType = TechType.Sulphur}},
+            {new ResourceData {Type = "Crash", Element = "Sc1",FriendlyName = "Crash", TechType = TechType.CrashPowder}},
+
         };
         internal static void CreateResources()
         {
