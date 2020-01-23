@@ -67,7 +67,10 @@
   <ItemGroup>
     <Compile Include="Configuration\Mod.cs" />
     <Compile Include="Craftables\DecompressedItem.cs" />
+    <Compile Include="Craftables\DecompressedItemBulk.cs" />
+    <Compile Include="Craftables\PackedBulkItem.cs" />
     <Compile Include="Craftables\StackedItem.cs" />
+    <Compile Include="Craftables\StackedItembulk.cs" />
     <Compile Include="Data\MIResources.cs" />
     <Compile Include="Utilities\QuickLogger.cs" />
     <Compile Include="moreingots.cs" />
