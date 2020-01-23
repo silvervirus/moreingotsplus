@@ -47,15 +47,17 @@ namespace MoreIngots.Craftables
                 var stacked = new StackedItem(customResourceData);
                 stacked.Patch();
                 var stackedbulk = new StackedItembulk(customResourceData);
-                stacked.Patch();
+                stackedbulk.Patch();
+                var packedbulk = new PackedbulkItem(customResourceData);
+                packedbulk.Patch();
                 var unpacked = new DecompressedItem(TechType, _resourceData.TechType, resoureData.Type, new[] { "MI", "MIUnPack" },"MIPU");
                 unpacked.Patch();
-                var unpackedbulk = new DecompressedItemBulk(TechType, _resourceData.TechType, resoureData.Type, new[] { "MI", "MIUnPack" }, "MIPU");
-                unpacked.Patch();
+                var unpackedbulk = new DecompressedItemBulk(TechType, _resourceData.TechType, resoureData.Type, new[] { "BI", "BIUnPack" }, "BIPU");
+                unpackedbulk.Patch();
                 var unStack = new DecompressedItem(stacked.TechType, TechType, resoureData.Type, new[] { "MI", "MIUnStack"},"MISU");
                 unStack.Patch();
-                var unStackbulk = new DecompressedItemBulk(stackedbulk.TechType, TechType, resoureData.Type, new[] { "MI", "MIUnStack" }, "MISU");
-                unStack.Patch();
+                var unStackbulk = new DecompressedItemBulk(stackedbulk.TechType, TechType, resoureData.Type, new[] { "BI", "BIUnStack" }, "BISU");
+                unStackbulk.Patch();
             };
         }
 

@@ -15,7 +15,7 @@ namespace MoreIngots.Craftables
     /// A class that represents a resource in the MoreIngots Mod this class inherits <see cref="Craftable"/> to make it easier to add craftable items to the game.
     /// </summary>
     [Serializable]
-    internal class StackedItembulk : Craftable
+    internal class PackedbulkItem : Craftable
     {
         private readonly GameObject _ingotPrefab;
         private ResourceData _resourceData;
@@ -24,7 +24,7 @@ namespace MoreIngots.Craftables
         public override TechCategory CategoryForPDA => TechCategory.AdvancedMaterials;
         public override string AssetsFolder => Mod.ModAssetFolder;
         public override string IconFileName { get; }
-        public override string[] StepsToFabricatorTab => new[] {"BI", "BIStack"};
+        public override string[] StepsToFabricatorTab => new[] {"BI", "BIPack" };
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
 
@@ -33,12 +33,12 @@ namespace MoreIngots.Craftables
         /// </summary>
         /// <param name="resourceKey"></param>
         /// <param name="resoureData">The data that has all information needed to create a new resource</param>
-        public StackedItembulk(ResourceData resoureData) : base($"MISB{resoureData.Type}", $"StackedBulk {resoureData.FriendlyName} Ingots", $"{resoureData.Element}. Stacked {resoureData.FriendlyName}. Added by the MoreIngots mod")
+        public PackedbulkItem(ResourceData resoureData) : base($"MIP{resoureData.Type}", $"packedBulk {resoureData.FriendlyName}", $"{resoureData.Element}. packed {resoureData.FriendlyName}. Added by the MoreIngots mod")
         {
             _ingotPrefab = CraftData.GetPrefabForTechType(TechType.PlasteelIngot);
             
             //Set icon Name;
-            IconFileName = $"MIS{resoureData.Type}.png";
+            IconFileName = $"MI{resoureData.Type}.png";
 
             _resourceData = resoureData;
         }
